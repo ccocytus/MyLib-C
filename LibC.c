@@ -60,3 +60,16 @@ char *my_strcat(char *dest, char *src)
     dest[len + i] =  '\0';
     return dest;
 }
+
+char *my_strncat(char *dest, char const *src, int nb)
+{
+    int dest_len = my_strlen(dest);
+    int src_len = my_strlen(src);
+
+    if (nb > src_len)
+        nb = src_len;
+    for (int i = 0; i < nb; i++) 
+        dest[dest_len + i] = src[i];
+    dest[dest_len + nb] = '\0';
+    return dest;
+}
